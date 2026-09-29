@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "about": "نبذة عني",
+    "projects": "المشاريع",
+    "contact": "تواصل معي"
+  },
+  "hero": {
+    "greeting": "مرحبًا، أنا",
+    "viewProjects": "عرض المشاريع",
+    "contactMe": "تواصل معي",
+    "portraitAlt": "علاء الزين — مهندس برمجيات",
+    "socials": {
+      "github": "جيت هاب",
+      "linkedin": "لينكدإن",
+      "email": "البريد الإلكتروني"
+    }
+  },
+  "about": {
+    "title": "نبذة عني",
+    "education": "التعليم",
+    "skills": "المهارات"
+  },
+  "projects": {
+    "title": "المشاريع",
+    "description": "مجموعة من الأنظمة والمنتجات التي صمّمتها وطوّرتها."
+  },
+  "contact": {
+    "title": "تواصل معي",
+    "description": "لديك فكرة مشروع أو ترغب فقط بإلقاء التحية؟ راسلني عبر واتساب وسأرد عليك.",
+    "email": "البريد الإلكتروني",
+    "findMeOn": "تابعني على",
+    "whatsapp": "تواصل عبر واتساب",
+    "whatsappHint": "أسرع وسيلة للتواصل معي — عادةً أرد خلال يوم."
+  },
+  "footer": {
+    "quickLinks": "روابط سريعة",
+    "connect": "تواصل",
+    "backToTop": "العودة للأعلى",
+    "developedBy": "مطور من قبل Ether Tech"
+  },
+  "common": {
+    "liveDemo": "عرض حي",
+    "github": "جيت هاب",
+    "viewCode": "عرض الكود",
+    "privateProject": "مشروع خاص",
+    "featured": "مميّز",
+    "skipToContent": "تخطَّ إلى المحتوى",
+    "skipIntro": "تخطٍّ",
+    "switchLanguage": "تغيير اللغة"
+  }
+}

@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   متغيرات الألوان: الوضع الفاتح افتراضيًا (قيم RGB مفصولة بمسافات)
+   ========================================================= */
+:root {
+  --color-bg: 255 255 255;
+  --color-surface: 245 245 247;
+  --color-fg: 15 23 42;
+  --color-muted: 71 85 105;
+  --color-border: 226 232 240;
+  --color-primary: 37 99 235;
+  --color-primary-fg: 255 255 255;
+  --color-accent: 13 148 136;
+  /* الخطوط: اللاتينية افتراضيًا (تُعرّف متغيراتها عبر next/font على <html>) */
+  --font-body: var(--font-sans);
+  --font-heading: var(--font-display);
+}
+
+/* عند العربية: نستبدل خط النصوص والعناوين بخط عربي مناسب (Cairo) */
+html[lang="ar"] {
+  --font-body: var(--font-arabic);
+  --font-heading: var(--font-arabic);
+}
+
+/* العربية لا تستخدم تقنين الحروف (letter-spacing) */
+html[lang="ar"] .tracking-tight,
+html[lang="ar"] .tracking-tighter {
+  letter-spacing: normal;
+}
+
+/* الوضع الداكن تلقائيًا حسب تفضيل النظام */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-bg: 2 6 23;
+    --color-surface: 15 23 42;
+    --color-fg: 241 245 249;
+    --color-muted: 148 163 184;
+    --color-border: 30 41 59;
+    --color-primary: 96 165 250;
+    --color-primary-fg: 2 6 23;
+    --color-accent: 45 212 191;
+  }
+}
+
+/* تجاوز يدوي للوضع الداكن عبر كلاس .dark (لزر التبديل مستقبلًا) */
+.dark {
+  --color-bg: 2 6 23;
+  --color-surface: 15 23 42;
+  --color-fg: 241 245 249;
+  --color-muted: 148 163 184;
+  --color-border: 30 41 59;
+  --color-primary: 96 165 250;
+  --color-primary-fg: 2 6 23;
+  --color-accent: 45 212 191;
+}
+
+/* =========================================================
+   أساسيات وتهيئة عامة
+   ========================================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* منع التمرير الأفقي على كل الأحجام */
+    overflow-x: hidden;
+    /* تثبيت مساحة شريط التمرير لتفادي إزاحة التخطيط (CLS) عند قفل التمرير */
+    scrollbar-gutter: stable;
+    /* إزاحة أقسام الروابط لتفادي اختفائها أسفل الشريط العلوي الثابت */
+    scroll-padding-top: 5rem;
+  }
+
+  /* إزاحة إضافية عند استهداف أي قسم بالمعرّف */
+  section[id],
+  [id="main"] {
+    scroll-margin-top: 5rem;
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-fg));
+    /* انتقال لطيف عند تبديل الثيم */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* مؤشر تركيز واضح للوصولية والتنقل بلوحة المفاتيح */
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* تنعيم الصور المتجاوبة */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================================================
+   احترام تقليل الحركة: تعطيل الأنيميشن عند الطلب
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   دخول صورة البطل (Hero) — transform فقط (بدون شفافية) لتفادي تأخير LCP
+   ========================================================= */
+@keyframes heroEnterRise {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.hero-enter-rise {
+  animation: heroEnterRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* =========================================================
+   شاشة البداية (Splash)
+   مخفية افتراضيًا، ولا تُظهرها إلا عند تفعيل class من سكربت
+   ما قبل الهيدريشن (html.splash-play) → لا وميض ولا تأثير بلا JS.
+   ========================================================= */
+.splash {
+  display: none;
+}
+
+html.splash-play .splash {
+  display: flex;
+}
+
+/* قفل التمرير أثناء العرض (يُزال عند الانتهاء) */
+html.splash-active,
+html.splash-active body {
+  overflow: hidden;
+}

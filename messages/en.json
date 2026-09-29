@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi , I'm",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me",
+    "portraitAlt": "Alaa Al-Zein — Software Engineer",
+    "socials": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "education": "Education",
+    "skills": "Skills"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "A selection of systems and products I've designed and built ."
+  },
+  "contact": {
+    "title": "Contact Me",
+    "description": "Have a project in mind or just want to say hello ? Reach out on WhatsApp and I'll get back to you .",
+    "email": "Email",
+    "findMeOn": "Find me on",
+    "whatsapp": "Chat on WhatsApp",
+    "whatsappHint": "Fastest way to reach me — I usually reply within a day ."
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "connect": "Connect",
+    "backToTop": "Back to top",
+    "developedBy": "Developed by Ether Tech"
+  },
+  "common": {
+    "liveDemo": "Live Demo",
+    "github": "GitHub",
+    "viewCode": "View Code",
+    "privateProject": "Private Project",
+    "featured": "Featured",
+    "skipToContent": "Skip to content",
+    "skipIntro": "Skip",
+    "switchLanguage": "Switch language"
+  }
+}
